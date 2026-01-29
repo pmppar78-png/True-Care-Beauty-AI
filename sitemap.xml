@@ -18,6 +18,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Skincare Guides - Skin Types -->
   <url>
     <loc>https://truecarebeautyai.com/guides/sensitive-skin-routine.html</loc>
     <lastmod>2026-01-29</lastmod>
@@ -25,13 +26,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://truecarebeautyai.com/guides/fragrance-free-skincare.html</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://truecarebeautyai.com/guides/acne-prone-skincare.html</loc>
+    <loc>https://truecarebeautyai.com/guides/oily-skin-care-guide.html</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -43,7 +38,89 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://truecarebeautyai.com/guides/acne-prone-skincare.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/rosacea-friendly-skincare.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Skincare Guides - Concerns -->
+  <url>
+    <loc>https://truecarebeautyai.com/guides/anti-aging-skincare-basics.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/hyperpigmentation-dark-spots.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/dark-circles-under-eyes.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://truecarebeautyai.com/guides/sunscreen-buyers-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/fragrance-free-skincare.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Ingredient Guides -->
+  <url>
+    <loc>https://truecarebeautyai.com/guides/retinol-beginners-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/vitamin-c-serums-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/hyaluronic-acid-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/niacinamide-skincare-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Routine & Comparison Guides -->
+  <url>
+    <loc>https://truecarebeautyai.com/guides/korean-skincare-routine.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/drugstore-vs-high-end-skincare.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Haircare Guides -->
+  <url>
+    <loc>https://truecarebeautyai.com/guides/curly-hair-care-guide.html</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -61,11 +138,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://truecarebeautyai.com/guides/thinning-hair-products.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/frizzy-hair-solutions.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/dry-scalp-care.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Body Care Guides -->
+  <url>
+    <loc>https://truecarebeautyai.com/guides/body-lotion-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://truecarebeautyai.com/guides/hand-cream-buyers-guide.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://truecarebeautyai.com/guides/sensitive-underarm-deodorants.html</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Info Pages -->
   <url>
     <loc>https://truecarebeautyai.com/about.html</loc>
     <lastmod>2026-01-29</lastmod>
