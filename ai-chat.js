@@ -1,5 +1,5 @@
 // netlify/functions/ai-chat.js
-// Smart Beauty AI Concierge – OpenAI backend
+// TrueCare Beauty AI Concierge – OpenAI backend
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -166,7 +166,7 @@ exports.handler = async (event) => {
     const systemMessage = {
       role: "system",
       content:
-        "You are the Smart Beauty AI concierge for an online beauty deals site. " +
+        "You are the TrueCare Beauty AI concierge for an online beauty deals site. " +
         "Provide gentle, friendly shopping guidance. You can compare beauty products, " +
         "explain ingredients at a high level, and help users explore deals and find products that fit their needs. " +
         "NEVER give medical, dermatology, diagnostic, or prescription advice. " +

@@ -1,0 +1,21 @@
+# robots.txt for TrueCare Beauty AI
+# https://truecarebeautyai.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://truecarebeautyai.com/sitemap.xml
+
+# Allow all crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /

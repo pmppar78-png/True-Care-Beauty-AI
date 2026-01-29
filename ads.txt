@@ -1,0 +1,16 @@
+# ads.txt - Authorized Digital Sellers
+# TrueCare Beauty AI
+# https://truecarebeautyai.com
+# Last updated: January 29, 2026
+
+# Google AdSense
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Sovrn / Lijit
+sovrn.com, XXXXXX, DIRECT
+lijit.com, XXXXXX, DIRECT
+lijit.com, XXXXXX-eb, DIRECT
+
+# Note: Replace XXXXXXXXXXXXXXXX with your actual Google AdSense Publisher ID
+# Note: Replace XXXXXX with your actual Sovrn/Lijit Publisher ID
+# These placeholder values should be updated with real IDs once accounts are approved
