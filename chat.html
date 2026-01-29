@@ -162,11 +162,48 @@
 
       // For AI messages, linkify URLs and make them sponsored affiliate links
       if (role === 'ai') {
-        // Replace URLs with anchor tags
-        const linkedText = text.replace(
-          /(https?:\/\/[^\s\)]+)/g,
-          '<a href="$1" target="_blank" rel="sponsored noopener" class="beauty-affiliate-link">$1</a>'
-        );
+        // Enhanced linkify: Only convert URLs that are NOT already inside anchor tags
+        // This prevents double-linking if the AI somehow returns pre-formatted HTML
+        let linkedText = text;
+
+        // First, check if the text contains any existing anchor tags
+        const hasExistingAnchors = /<a\s/i.test(text);
+
+        if (hasExistingAnchors) {
+          // If there are existing anchors, only linkify URLs outside of them
+          // Split by anchor tags, process non-anchor parts, rejoin
+          linkedText = text.replace(
+            /(<a\s[^>]*>.*?<\/a>)|(https?:\/\/[^\s\)<>"]+)/gi,
+            function(match, anchor, url) {
+              if (anchor) {
+                // This is an existing anchor tag - preserve it but ensure compliance attributes
+                // Add rel="sponsored noopener" and target="_blank" if missing
+                let updatedAnchor = anchor;
+                if (!/rel=/i.test(updatedAnchor)) {
+                  updatedAnchor = updatedAnchor.replace(/<a\s/i, '<a rel="sponsored noopener" ');
+                }
+                if (!/target=/i.test(updatedAnchor)) {
+                  updatedAnchor = updatedAnchor.replace(/<a\s/i, '<a target="_blank" ');
+                }
+                if (!/class=.*beauty-affiliate-link/i.test(updatedAnchor)) {
+                  updatedAnchor = updatedAnchor.replace(/<a\s/i, '<a class="beauty-affiliate-link" ');
+                }
+                return updatedAnchor;
+              } else if (url) {
+                // This is a plain URL - convert to affiliate link
+                return '<a href="' + url + '" target="_blank" rel="sponsored noopener" class="beauty-affiliate-link">' + url + '</a>';
+              }
+              return match;
+            }
+          );
+        } else {
+          // No existing anchors - simple regex replacement for all URLs
+          linkedText = text.replace(
+            /(https?:\/\/[^\s\)<>"]+)/g,
+            '<a href="$1" target="_blank" rel="sponsored noopener" class="beauty-affiliate-link">$1</a>'
+          );
+        }
+
         div.innerHTML = linkedText;
       } else {
         div.textContent = text;
