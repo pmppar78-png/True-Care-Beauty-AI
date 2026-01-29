@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Beauty Concierge • Smart Beauty Deal Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Chat with the Smart Beauty AI Concierge for gentle, non-medical guidance about beauty and personal care deals." />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="chat-page-wrap">
+    <header class="chat-page-header">
+      <div class="chat-header-inner">
+        <div class="brand">
+          <div class="brand-logo"></div>
+          <div class="brand-text">
+            <span class="brand-name">Smart Beauty</span>
+            <span class="brand-tagline">AI Concierge</span>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/index.html">Home</a>
+          <a href="/index.html#how-it-works">How it works</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chat-main-container">
+      <div class="chat-intro-banner">
+        <div>
+          <p style="margin: 0 0 1em 0; font-size: 0.9em; color: #666;">
+            Some suggestions may include sponsored partners. This does not affect guidance.
+          </p>
+          <h1>Smart Beauty AI Concierge</h1>
+          <p>
+            Ask friendly, plain-English questions about beauty &amp; personal care
+            products, value, and routines. This AI can help you interpret product
+            descriptions, compare options, and discover deals—offering shopping guidance only,
+            not medical or dermatology advice.
+          </p>
+        </div>
+      </div>
+
+      <div class="chat-messages-container" aria-label="AI chat">
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="msg ai">
+            Hi! I&apos;m your Smart Beauty AI concierge. I can help you
+            suggest everyday routines, compare value between products, or point
+            you toward options at trusted retailers. I provide shopping guidance only—I can&apos;t diagnose
+            skin or hair issues, but I can help you shop more confidently. What are
+            you curious about today?
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <form id="chat-form" class="chat-input-form">
+          <input
+            type="text"
+            id="user-input"
+            autocomplete="off"
+            placeholder="Ask about gentle cleansers under $20, a simple evening routine, or hair masks for dry lengths..."
+            required
+          />
+          <button type="submit" id="send-btn">Send</button>
+        </form>
+      </div>
+
+      <aside class="chat-safety-section">
+        <h2>Before we chat</h2>
+        <p>
+          This AI provides shopping and product-finding guidance only. It is <strong>not</strong> a
+          medical, dermatology, or professional care service. For conditions,
+          allergies, prescriptions, or procedures, please consult a licensed
+          healthcare professional.
+        </p>
+        <ul>
+          <li>Safe topics: textures, finishes, fragrance levels, price ranges, gift ideas, kit comparisons.</li>
+          <li>Off-limits topics: diagnosing or treating conditions, giving medical clearance, or replacing your doctor.</li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <strong>Smart Beauty &amp; Personal Care Deal Finder</strong><br />
+            For advertising and business inquiries only: <a href="mailto:advertise@smartbeautyfinder.com">advertise@smartbeautyfinder.com</a>
+          </div>
+          <div class="footer-links">
+            <a href="/index.html">Home</a>
+            <a href="/index.html#deals">Deals</a>
+            <a href="/privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <div>
+          Conversations are for shopping guidance only and are not
+          medical, dermatology, diagnosis, or treatment advice.
+        </div>
+        <div>
+          Some suggestions may include sponsored partners. This does not affect guidance.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const messagesEl = document.getElementById('messages');
+    const messagesContainer = document.querySelector('.chat-messages-container');
+    const formEl = document.getElementById('chat-form');
+    const inputEl = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const chatHeader = document.querySelector('.chat-page-header');
+
+    // Shrinking header functionality
+    function shrinkHeader() {
+      chatHeader.classList.add('shrink');
+    }
+
+    function expandHeader() {
+      chatHeader.classList.remove('shrink');
+    }
+
+    // Handle input focus - shrink header when typing
+    inputEl.addEventListener('focus', shrinkHeader);
+    inputEl.addEventListener('blur', expandHeader);
+
+    // Handle visual viewport changes (for mobile keyboard detection)
+    if (window.visualViewport) {
+      let lastHeight = window.visualViewport.height;
+
+      window.visualViewport.addEventListener('resize', () => {
+        const currentHeight = window.visualViewport.height;
+
+        // If viewport height decreases significantly, keyboard is likely open
+        if (currentHeight < lastHeight * 0.75) {
+          shrinkHeader();
+        } else if (currentHeight > lastHeight * 1.1) {
+          // Viewport increased, keyboard likely closed
+          if (document.activeElement !== inputEl) {
+            expandHeader();
+          }
+        }
+
+        lastHeight = currentHeight;
+      });
+    }
+
+    function appendMessage(text, role) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + role;
+
+      // For AI messages, linkify URLs and make them sponsored affiliate links
+      if (role === 'ai') {
+        // Replace URLs with anchor tags
+        const linkedText = text.replace(
+          /(https?:\/\/[^\s\)]+)/g,
+          '<a href="$1" target="_blank" rel="sponsored noopener" class="beauty-affiliate-link">$1</a>'
+        );
+        div.innerHTML = linkedText;
+      } else {
+        div.textContent = text;
+      }
+
+      messagesEl.appendChild(div);
+      // Scroll the container, not the messages element
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    async function sendMessage(event) {
+      event.preventDefault();
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      appendMessage(text, 'user');
+      inputEl.value = '';
+      inputEl.focus();
+      sendBtn.disabled = true;
+
+      try {
+        const response = await fetch('/.netlify/functions/ai-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: collectMessages()
+          })
+        });
+
+        if (!response.ok) {
+          console.error('AI error', response.status, await response.text());
+          appendMessage("I&apos;m having trouble reaching the AI right now. Please try again in a moment.", 'ai');
+        } else {
+          const data = await response.json();
+          appendMessage(data.reply || "I&apos;m sorry—something went wrong generating a reply. Please try again.", 'ai');
+        }
+      } catch (err) {
+        console.error('Network error', err);
+        appendMessage("I&apos;m having trouble connecting right now. Please check your connection and try again.", 'ai');
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    function collectMessages() {
+      const msgs = [];
+      const children = messagesEl.querySelectorAll('.msg');
+      children.forEach(node => {
+        const isUser = node.classList.contains('user');
+        // Use textContent to get plain text (strips HTML tags from AI messages with links)
+        msgs.push({
+          role: isUser ? 'user' : 'assistant',
+          content: node.textContent
+        });
+      });
+      return msgs;
+    }
+
+    formEl.addEventListener('submit', sendMessage);
+  </script>
+</body>
+</html>
