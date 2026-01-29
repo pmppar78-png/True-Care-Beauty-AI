@@ -14,6 +14,10 @@
   --radius-lg: 12px;
   --radius-pill: 999px;
   --transition-fast: 0.2s ease;
+  /* Affiliate link colors - readable on dark chat bubbles */
+  --affiliate-link: #ff9ac7;
+  --affiliate-link-hover: #ffb0d4;
+  --affiliate-link-bg-hover: rgba(255, 154, 199, 0.15);
 }
 
 *,
@@ -749,23 +753,43 @@ footer.site-footer {
 }
 
 /* Beauty affiliate link styling - only within AI chat messages */
+/* Uses CSS variables for consistency with site palette */
 .msg.ai .beauty-affiliate-link {
-  color: #ff9ac7;
+  color: var(--affiliate-link);
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1.5px solid rgba(255, 154, 199, 0.5);
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   display: inline;
   padding: 0 2px;
+  border-radius: 2px;
+  /* Ensure adequate contrast for accessibility */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .msg.ai .beauty-affiliate-link:hover,
 .msg.ai .beauty-affiliate-link:focus {
-  color: #ffb0d4;
-  border-bottom-color: #ffb0d4;
+  color: var(--affiliate-link-hover);
+  border-bottom-color: var(--affiliate-link-hover);
   border-bottom-width: 2px;
-  background: rgba(255, 154, 199, 0.15);
+  background: var(--affiliate-link-bg-hover);
   text-decoration: none;
+  outline: none;
+}
+
+/* Focus visible for keyboard navigation accessibility */
+.msg.ai .beauty-affiliate-link:focus-visible {
+  outline: 2px solid var(--affiliate-link);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Ensure link styling is distinct and clickable on mobile */
+@media (max-width: 640px) {
+  .msg.ai .beauty-affiliate-link {
+    padding: 1px 4px;
+    /* Slightly larger touch target on mobile */
+  }
 }
 
 .chat-input-container {
