@@ -2,13 +2,3 @@
 [build]
   publish = "."
   functions = "netlify/functions"
-
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/chat"
-  to = "/chat.html"
-  status = 200
