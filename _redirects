@@ -1,61 +1,61 @@
-# 301 redirects from .html to clean URLs
-# Netlify Pretty URLs serves the .html files at clean paths automatically
+# Forced 301 redirects from .html to clean canonical URLs
+# The ! flag forces the redirect even when a matching file exists on disk
 
 # Root Pages
-/index.html / 301
-/chat.html /chat 301
-/guides.html /guides 301
-/skincare.html /skincare 301
-/haircare.html /haircare 301
-/bodycare.html /bodycare 301
-/about.html /about 301
-/contact.html /contact 301
-/terms.html /terms 301
-/privacy-policy.html /privacy-policy 301
+/index.html / 301!
+/chat.html /chat 301!
+/guides.html /guides 301!
+/skincare.html /skincare 301!
+/haircare.html /haircare 301!
+/bodycare.html /bodycare 301!
+/about.html /about 301!
+/contact.html /contact 301!
+/terms.html /terms 301!
+/privacy-policy.html /privacy-policy 301!
 
 # Skincare - Skin Types
-/guides/sensitive-skin-routine.html /guides/sensitive-skin-routine 301
-/guides/oily-skin-care-guide.html /guides/oily-skin-care-guide 301
-/guides/dry-vs-dehydrated-skin.html /guides/dry-vs-dehydrated-skin 301
-/guides/combination-skin-care.html /guides/combination-skin-care 301
-/guides/acne-prone-skincare.html /guides/acne-prone-skincare 301
-/guides/rosacea-friendly-skincare.html /guides/rosacea-friendly-skincare 301
+/guides/sensitive-skin-routine.html /guides/sensitive-skin-routine 301!
+/guides/oily-skin-care-guide.html /guides/oily-skin-care-guide 301!
+/guides/dry-vs-dehydrated-skin.html /guides/dry-vs-dehydrated-skin 301!
+/guides/combination-skin-care.html /guides/combination-skin-care 301!
+/guides/acne-prone-skincare.html /guides/acne-prone-skincare 301!
+/guides/rosacea-friendly-skincare.html /guides/rosacea-friendly-skincare 301!
 
 # Skincare - Concerns
-/guides/anti-aging-skincare-basics.html /guides/anti-aging-skincare-basics 301
-/guides/hyperpigmentation-dark-spots.html /guides/hyperpigmentation-dark-spots 301
-/guides/dark-circles-under-eyes.html /guides/dark-circles-under-eyes 301
-/guides/skin-barrier-repair.html /guides/skin-barrier-repair 301
-/guides/sunscreen-buyers-guide.html /guides/sunscreen-buyers-guide 301
-/guides/fragrance-free-skincare.html /guides/fragrance-free-skincare 301
-/guides/pregnancy-safe-skincare.html /guides/pregnancy-safe-skincare 301
+/guides/anti-aging-skincare-basics.html /guides/anti-aging-skincare-basics 301!
+/guides/hyperpigmentation-dark-spots.html /guides/hyperpigmentation-dark-spots 301!
+/guides/dark-circles-under-eyes.html /guides/dark-circles-under-eyes 301!
+/guides/skin-barrier-repair.html /guides/skin-barrier-repair 301!
+/guides/sunscreen-buyers-guide.html /guides/sunscreen-buyers-guide 301!
+/guides/fragrance-free-skincare.html /guides/fragrance-free-skincare 301!
+/guides/pregnancy-safe-skincare.html /guides/pregnancy-safe-skincare 301!
 
 # Ingredient Guides
-/guides/retinol-beginners-guide.html /guides/retinol-beginners-guide 301
-/guides/vitamin-c-serums-guide.html /guides/vitamin-c-serums-guide 301
-/guides/hyaluronic-acid-guide.html /guides/hyaluronic-acid-guide 301
-/guides/niacinamide-skincare-guide.html /guides/niacinamide-skincare-guide 301
-/guides/ceramides-skincare-guide.html /guides/ceramides-skincare-guide 301
-/guides/aha-bha-guide.html /guides/aha-bha-guide 301
+/guides/retinol-beginners-guide.html /guides/retinol-beginners-guide 301!
+/guides/vitamin-c-serums-guide.html /guides/vitamin-c-serums-guide 301!
+/guides/hyaluronic-acid-guide.html /guides/hyaluronic-acid-guide 301!
+/guides/niacinamide-skincare-guide.html /guides/niacinamide-skincare-guide 301!
+/guides/ceramides-skincare-guide.html /guides/ceramides-skincare-guide 301!
+/guides/aha-bha-guide.html /guides/aha-bha-guide 301!
 
 # Routines & Comparisons
-/guides/korean-skincare-routine.html /guides/korean-skincare-routine 301
-/guides/double-cleansing-guide.html /guides/double-cleansing-guide 301
-/guides/drugstore-vs-high-end-skincare.html /guides/drugstore-vs-high-end-skincare 301
+/guides/korean-skincare-routine.html /guides/korean-skincare-routine 301!
+/guides/double-cleansing-guide.html /guides/double-cleansing-guide 301!
+/guides/drugstore-vs-high-end-skincare.html /guides/drugstore-vs-high-end-skincare 301!
 
 # Haircare
-/guides/curly-hair-care-guide.html /guides/curly-hair-care-guide 301
-/guides/fine-hair-products.html /guides/fine-hair-products 301
-/guides/damaged-hair-repair.html /guides/damaged-hair-repair 301
-/guides/color-safe-haircare.html /guides/color-safe-haircare 301
-/guides/thinning-hair-products.html /guides/thinning-hair-products 301
-/guides/frizzy-hair-solutions.html /guides/frizzy-hair-solutions 301
-/guides/dry-scalp-care.html /guides/dry-scalp-care 301
-/guides/oily-scalp-care.html /guides/oily-scalp-care 301
+/guides/curly-hair-care-guide.html /guides/curly-hair-care-guide 301!
+/guides/fine-hair-products.html /guides/fine-hair-products 301!
+/guides/damaged-hair-repair.html /guides/damaged-hair-repair 301!
+/guides/color-safe-haircare.html /guides/color-safe-haircare 301!
+/guides/thinning-hair-products.html /guides/thinning-hair-products 301!
+/guides/frizzy-hair-solutions.html /guides/frizzy-hair-solutions 301!
+/guides/dry-scalp-care.html /guides/dry-scalp-care 301!
+/guides/oily-scalp-care.html /guides/oily-scalp-care 301!
 
 # Body Care
-/guides/body-lotion-guide.html /guides/body-lotion-guide 301
-/guides/hand-cream-buyers-guide.html /guides/hand-cream-buyers-guide 301
-/guides/lip-care-guide.html /guides/lip-care-guide 301
-/guides/body-acne-treatment.html /guides/body-acne-treatment 301
-/guides/sensitive-underarm-deodorants.html /guides/sensitive-underarm-deodorants 301
+/guides/body-lotion-guide.html /guides/body-lotion-guide 301!
+/guides/hand-cream-buyers-guide.html /guides/hand-cream-buyers-guide 301!
+/guides/lip-care-guide.html /guides/lip-care-guide 301!
+/guides/body-acne-treatment.html /guides/body-acne-treatment 301!
+/guides/sensitive-underarm-deodorants.html /guides/sensitive-underarm-deodorants 301!
