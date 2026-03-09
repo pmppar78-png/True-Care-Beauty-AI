@@ -1,3 +1,8 @@
+# Trailing slash normalization — redirect /path/ to /path (301)
+# Must come before .html redirects to prevent chains
+/guides/:slug/ /guides/:slug 301!
+/:page/ /:page 301!
+
 # Forced 301 redirects from .html to clean canonical URLs
 # The ! flag forces the redirect even when a matching file exists on disk
 
