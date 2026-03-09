@@ -5,9 +5,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-# HTML pages - ensure no accidental X-Robots-Tag noindex
+# .html extension URLs should NOT be indexed (they redirect to clean URLs)
 /*.html
-  X-Robots-Tag: index, follow
+  X-Robots-Tag: noindex
 
 # Sitemap
 /sitemap.xml
