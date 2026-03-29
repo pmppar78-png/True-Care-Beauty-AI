@@ -3,7 +3,7 @@
   functions = "netlify/functions"
 
 [build.processing.html]
-  pretty_urls = false
+  pretty_urls = true
 
 # Global headers for SEO and security
 [[headers]]
@@ -28,5 +28,5 @@
 # Custom 404 page
 [[redirects]]
   from = "/*"
-  to = "/404.html"
+  to = "/404"
   status = 404
