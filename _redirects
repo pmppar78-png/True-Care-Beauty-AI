@@ -3,6 +3,10 @@
 /guides/:slug/ /guides/:slug 301!
 /:page/ /:page 301!
 
+# Prevent /index from serving as duplicate of /
+/index /  301!
+/index/ /  301!
+
 # Forced 301 redirects from .html to clean canonical URLs
 # The ! flag forces the redirect even when a matching file exists on disk
 
