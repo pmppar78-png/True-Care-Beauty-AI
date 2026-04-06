@@ -2,29 +2,6 @@
   publish = "."
   functions = "netlify/functions"
 
-[build.processing.html]
-  pretty_urls = true
-
-# Global headers for SEO and security
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "SAMEORIGIN"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
-# Ensure sitemap and robots are accessible
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml; charset=UTF-8"
-
-[[headers]]
-  for = "/robots.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=UTF-8"
-
 # Custom 404 page
 [[redirects]]
   from = "/*"
