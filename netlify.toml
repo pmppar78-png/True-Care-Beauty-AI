@@ -2,7 +2,336 @@
   publish = "."
   functions = "netlify/functions"
 
-# Custom 404 page
+# ============================================================
+# URL NORMALIZATION — Enforce single canonical URL format:
+#   https://truecarebeautyai.com/path (no trailing slash, no .html)
+# ============================================================
+
+# 1. Strip trailing slashes → 301 to clean URL (except root /)
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# 2. Strip .html extensions → 301 to clean URL
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# 3. Redirect /index to root
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+  force = true
+
+# ============================================================
+# CLEAN URL REWRITES — Serve .html files at clean paths (200)
+# Force = true ensures these take precedence over asset resolution
+# ============================================================
+
+# Main pages
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/chat"
+  to = "/chat.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides"
+  to = "/guides.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/skincare"
+  to = "/skincare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/haircare"
+  to = "/haircare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/bodycare"
+  to = "/bodycare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Skincare: Skin Types
+# ============================================================
+
+[[redirects]]
+  from = "/guides/sensitive-skin-routine"
+  to = "/guides/sensitive-skin-routine.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/oily-skin-care-guide"
+  to = "/guides/oily-skin-care-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/dry-vs-dehydrated-skin"
+  to = "/guides/dry-vs-dehydrated-skin.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/combination-skin-care"
+  to = "/guides/combination-skin-care.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/acne-prone-skincare"
+  to = "/guides/acne-prone-skincare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/rosacea-friendly-skincare"
+  to = "/guides/rosacea-friendly-skincare.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Skincare: Concerns
+# ============================================================
+
+[[redirects]]
+  from = "/guides/anti-aging-skincare-basics"
+  to = "/guides/anti-aging-skincare-basics.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/hyperpigmentation-dark-spots"
+  to = "/guides/hyperpigmentation-dark-spots.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/dark-circles-under-eyes"
+  to = "/guides/dark-circles-under-eyes.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/skin-barrier-repair"
+  to = "/guides/skin-barrier-repair.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/sunscreen-buyers-guide"
+  to = "/guides/sunscreen-buyers-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/fragrance-free-skincare"
+  to = "/guides/fragrance-free-skincare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/pregnancy-safe-skincare"
+  to = "/guides/pregnancy-safe-skincare.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Ingredients
+# ============================================================
+
+[[redirects]]
+  from = "/guides/retinol-beginners-guide"
+  to = "/guides/retinol-beginners-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/vitamin-c-serums-guide"
+  to = "/guides/vitamin-c-serums-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/hyaluronic-acid-guide"
+  to = "/guides/hyaluronic-acid-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/niacinamide-skincare-guide"
+  to = "/guides/niacinamide-skincare-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/ceramides-skincare-guide"
+  to = "/guides/ceramides-skincare-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/aha-bha-guide"
+  to = "/guides/aha-bha-guide.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Routines & Comparisons
+# ============================================================
+
+[[redirects]]
+  from = "/guides/korean-skincare-routine"
+  to = "/guides/korean-skincare-routine.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/double-cleansing-guide"
+  to = "/guides/double-cleansing-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/drugstore-vs-high-end-skincare"
+  to = "/guides/drugstore-vs-high-end-skincare.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Haircare
+# ============================================================
+
+[[redirects]]
+  from = "/guides/curly-hair-care-guide"
+  to = "/guides/curly-hair-care-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/fine-hair-products"
+  to = "/guides/fine-hair-products.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/damaged-hair-repair"
+  to = "/guides/damaged-hair-repair.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/color-safe-haircare"
+  to = "/guides/color-safe-haircare.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/thinning-hair-products"
+  to = "/guides/thinning-hair-products.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/frizzy-hair-solutions"
+  to = "/guides/frizzy-hair-solutions.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/dry-scalp-care"
+  to = "/guides/dry-scalp-care.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/oily-scalp-care"
+  to = "/guides/oily-scalp-care.html"
+  status = 200
+  force = true
+
+# ============================================================
+# GUIDE PAGES — Body Care
+# ============================================================
+
+[[redirects]]
+  from = "/guides/body-lotion-guide"
+  to = "/guides/body-lotion-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/hand-cream-buyers-guide"
+  to = "/guides/hand-cream-buyers-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/lip-care-guide"
+  to = "/guides/lip-care-guide.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/body-acne-treatment"
+  to = "/guides/body-acne-treatment.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides/sensitive-underarm-deodorants"
+  to = "/guides/sensitive-underarm-deodorants.html"
+  status = 200
+  force = true
+
+# ============================================================
+# CATCH-ALL — Custom 404 page
+# ============================================================
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
