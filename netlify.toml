@@ -6,22 +6,21 @@
 # URL NORMALIZATION — Enforce single canonical URL format:
 #   https://truecarebeautyai.com/path (no trailing slash, no .html)
 # ============================================================
+# NOTE: The previous `/*/ → /:splat` rule was removed because
+# Netlify's redirect engine matched it against every path
+# (including /), producing a site-wide self-redirect loop
+# (ERR_TOO_MANY_REDIRECTS). Trailing-slash normalization is
+# handled by Netlify's default asset pretty_urls behavior and
+# by the specific 200 rewrites below.
 
-# 1. Strip trailing slashes → 301 to clean URL (except root /)
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# 2. Strip .html extensions → 301 to clean URL
+# Strip .html extensions → 301 to clean URL
 [[redirects]]
   from = "/*.html"
   to = "/:splat"
   status = 301
   force = true
 
-# 3. Redirect /index to root
+# Redirect /index to root
 [[redirects]]
   from = "/index"
   to = "/"
@@ -30,7 +29,6 @@
 
 # ============================================================
 # CLEAN URL REWRITES — Serve .html files at clean paths (200)
-# Force = true ensures these take precedence over asset resolution
 # ============================================================
 
 # Main pages
