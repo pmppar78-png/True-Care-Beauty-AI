@@ -13,6 +13,13 @@
 # handled by Netlify's default asset pretty_urls behavior and
 # by the specific 200 rewrites below.
 
+# Redirect /index.html → / directly (must precede /*.html to avoid a 2-hop chain)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Strip .html extensions → 301 to clean URL
 [[redirects]]
   from = "/*.html"
