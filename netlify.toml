@@ -13,6 +13,32 @@
 # handled by Netlify's default asset pretty_urls behavior and
 # by the specific 200 rewrites below.
 
+# ============================================================
+# HOSTNAME / SCHEME NORMALIZATION — single-hop 301
+# Forces every non-canonical hostname/scheme combination to
+# https://truecarebeautyai.com/ in ONE redirect, eliminating
+# the 2-hop chain (http://www → https://www → https://apex)
+# that Netlify's default behavior can produce.
+# ============================================================
+
+[[redirects]]
+  from = "http://truecarebeautyai.com/*"
+  to = "https://truecarebeautyai.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.truecarebeautyai.com/*"
+  to = "https://truecarebeautyai.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.truecarebeautyai.com/*"
+  to = "https://truecarebeautyai.com/:splat"
+  status = 301
+  force = true
+
 # Redirect /index.html → / directly (must precede /*.html to avoid a 2-hop chain)
 [[redirects]]
   from = "/index.html"
